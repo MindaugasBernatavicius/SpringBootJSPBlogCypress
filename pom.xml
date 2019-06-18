@@ -47,6 +47,13 @@
             <scope>runtime</scope>
             <version>1.4.199</version>
         </dependency>
+        <!-- Needed for automated redeployment of servlet and JSP code -->
+        <!-- https://www.logicbig.com/tutorials/spring-framework/spring-boot/boot-auto-restart.html -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-devtools</artifactId>
+            <optional>true</optional>
+        </dependency>
     </dependencies>
 
     <properties>
