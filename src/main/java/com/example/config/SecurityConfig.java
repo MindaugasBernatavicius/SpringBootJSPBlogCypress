@@ -12,6 +12,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
     @Override
     protected void configure(HttpSecurity http) throws Exception {
+        // .headers().frameOptions().disable() -- needed in order to see the H2 db web interface
         http
             .csrf().disable()
             .headers().frameOptions().disable().and()
