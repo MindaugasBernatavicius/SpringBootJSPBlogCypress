@@ -1,9 +1,7 @@
-package com.example.models;
+package com.example.model;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
+import java.util.List;
 
 @Entity
 public class Post {
@@ -13,6 +11,8 @@ public class Post {
     private String author;
     private String title;
     private String text;
+    @OneToMany(mappedBy="post")
+    private List<Comment> comments;
 
     public Post(){}
 
@@ -53,5 +53,9 @@ public class Post {
 
     public void setText(String text) {
         this.text = text;
+    }
+
+    public List<Comment> getComments() {
+        return comments;
     }
 }

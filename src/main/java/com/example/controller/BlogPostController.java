@@ -1,7 +1,8 @@
-package com.example.controllers;
+package com.example.controller;
 
-import com.example.models.Post;
-import com.example.repositories.PostRepository;
+import com.example.model.Comment;
+import com.example.model.Post;
+import com.example.repository.PostRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.stereotype.Controller;
@@ -9,6 +10,8 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+
+import java.util.Arrays;
 
 @Controller
 public class BlogPostController {
@@ -27,13 +30,17 @@ public class BlogPostController {
     @RequestMapping(method=RequestMethod.GET, path="/post/{id}")
     public String getPostById(Model model, @PathVariable int id) {
         model.addAttribute("post", postRepository.findById(id).get());
+        // Printing the comments out
+        // for (Comment c: postRepository.findById(id).get().getComments()) {
+        //     System.out.println("Author: " + c.getAuthor() + "; " + c.getText());
+        // }
         return "blogpost/post";
     }
 
     // create new post
     @RequestMapping(method=RequestMethod.POST, path="/post",
             consumes = MediaType.APPLICATION_FORM_URLENCODED_VALUE)
-    public String addTyrimasForPatient(Post post)
+    public String addPost(Post post)
             // @RequestParam("title") String title,
             // @RequestParam("author") String author,
             // @RequestParam("text") String text)

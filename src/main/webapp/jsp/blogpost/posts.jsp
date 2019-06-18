@@ -24,7 +24,7 @@
                 <form action="/post" id="new-blogpost-form" method="post">
                     <span class="form-span">Name:</span><input type="text" name="author"></br>
                     <span class="form-span">Title:</span><input type="text" name="title"></br></br>
-                    <textarea rows="4" cols="95" name="text" form="new-blogpost-form">Enter text here...</textarea>
+                    <textarea rows="4" cols="97" name="text" form="new-blogpost-form">Enter text here...</textarea>
                     <input type="submit">
                 </form>
             </c:if>
