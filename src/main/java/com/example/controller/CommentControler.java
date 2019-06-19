@@ -34,5 +34,4 @@ public class CommentControler {
         commentRepository.delete(commentRepository.findById(commentId).get());
         return "redirect:/post/" + postId;
     }
-
 }
