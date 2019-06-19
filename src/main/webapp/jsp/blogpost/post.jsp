@@ -18,10 +18,13 @@
                 <c:forEach items="${post.comments}" var="comment">
                     <hr>
                     <p><span id="author-name"><c:out value="${comment.author}"/>: </span><span><c:out value="${comment.text}"/></span></p>
-                    <form method="POST" action="<c:out value="/post/${post.id}/comment/${comment.id}/delete"/>">
-                    <input type="submit" name="delete-comment" value="DELETE">
-                    </form>
-                    <hr>
+                    <%-- DELETE COMMENT BUTTON, only visible for admin user --%>
+                    <c:if test="${pageContext.request.isUserInRole('ADMIN')}">
+                        <form method="POST" action="<c:out value="/post/${post.id}/comment/${comment.id}/delete"/>">
+                            <input type="submit" name="delete-comment" value="DELETE">
+                        </form>
+                        <hr>
+                    </c:if>
                 </c:forEach>
             </c:if>
             <br>
@@ -29,7 +32,7 @@
             <h4>Leave a comment:</h4>
             <form action="<c:out value="/post/${post.id}"/>/comment" id="new-comment-form" method="post">
                 <span class="form-span">Name:</span><input type="text" name="author"></br><br>
-                <textarea rows="4" cols="97" name="text" form="new-comment-form">Enter comment here...</textarea>
+                <textarea rows="4" cols="100" name="text" form="new-comment-form">Enter comment here...</textarea>
                 <input type="submit">
             </form>
         </div>

@@ -18,6 +18,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
             .headers().frameOptions().disable().and()
             .authorizeRequests()
                 .antMatchers(HttpMethod.GET, "/", "/post", "/post/*", "/js/*", "/css/*").permitAll()
+                .antMatchers(HttpMethod.POST, "/post/*/comment").permitAll()
                 .anyRequest().authenticated()
             .and()
             .httpBasic();

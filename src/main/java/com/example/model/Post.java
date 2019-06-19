@@ -16,8 +16,7 @@ public class Post {
 
     public Post(){}
 
-    public Post(int id, String title, String author, String text) {
-        this.id = id;
+    public Post(String title, String author, String text) {
         this.author = author;
         this.title = title;
         this.text = text;
@@ -25,10 +24,6 @@ public class Post {
 
     public int getId() {
         return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
     }
 
     public String getTitle() {
@@ -57,5 +52,9 @@ public class Post {
 
     public List<Comment> getComments() {
         return comments;
+    }
+
+    public void setComments(List<Comment> comments) {
+        this.comments = comments;
     }
 }

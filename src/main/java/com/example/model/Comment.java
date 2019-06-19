@@ -16,6 +16,11 @@ public class Comment {
     public Comment() {
     }
 
+    public Comment(String author, String text) {
+        this.author = author;
+        this.text = text;
+    }
+
     public int getId() {
         return id;
     }
