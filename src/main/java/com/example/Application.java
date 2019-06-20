@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 
 /**
  * Application class, the main entry point of this Blog application
- * @author  Tom Cat
+ * @author  Mindaugas Bernatavičius
  * @version 1.0
  * @since   2019-06-17
  */

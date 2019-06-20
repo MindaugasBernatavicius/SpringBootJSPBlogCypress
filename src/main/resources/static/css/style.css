@@ -21,7 +21,6 @@ a, input, span, textarea {
 #author-name, #read-more-link {
     font-style: italic;
     font-size: 15px;
-    text-decoration: none;
     color: black;
     margin-top: unset;
     margin-bottom: unset;
