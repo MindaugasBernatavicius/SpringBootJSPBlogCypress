@@ -1,6 +1,5 @@
 package com.example.controller;
 
-import com.example.model.Comment;
 import com.example.model.Post;
 import com.example.repository.PostRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,8 +10,6 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
-import java.util.Arrays;
-
 @Controller
 public class BlogPostController {
 
@@ -20,14 +17,14 @@ public class BlogPostController {
     private PostRepository postRepository;
 
     // get all posts
-    @RequestMapping(method=RequestMethod.GET, path="/post")
+    @RequestMapping(method = RequestMethod.GET, path = "/post")
     public String getAllPosts(Model model) {
         model.addAttribute("posts", postRepository.findAll());
         return "blogpost/posts";
     }
 
     // get post by id
-    @RequestMapping(method=RequestMethod.GET, path="/post/{id}")
+    @RequestMapping(method = RequestMethod.GET, path = "/post/{id}")
     public String getPostById(Model model, @PathVariable int id) {
         model.addAttribute("post", postRepository.findById(id).get());
         // Printing the comments out
@@ -38,12 +35,12 @@ public class BlogPostController {
     }
 
     // create new post
-    @RequestMapping(method=RequestMethod.POST, path="/post",
+    @RequestMapping(method = RequestMethod.POST, path = "/post",
             consumes = MediaType.APPLICATION_FORM_URLENCODED_VALUE)
     public String addPost(Post post)
-            // @RequestParam("title") String title,
-            // @RequestParam("author") String author,
-            // @RequestParam("text") String text)
+    // @RequestParam("title") String title,
+    // @RequestParam("author") String author,
+    // @RequestParam("text") String text)
     {
         // postRepository.addPost(title, author, text);
         postRepository.save(post);
