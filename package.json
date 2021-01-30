@@ -1,0 +1,23 @@
+{
+  "name": "springbootjspblog",
+  "version": "1.0.0",
+  "description": "",
+  "main": "",
+  "dependencies": {},
+  "devDependencies": {
+    "cypress": "^6.3.0"
+  },
+  "scripts": {
+    "test": "node_modules\\.bin\\cypress open"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/MindaugasBernatavicius/SpringBootJSPBlog.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/MindaugasBernatavicius/SpringBootJSPBlog/issues"
+  },
+  "homepage": "https://github.com/MindaugasBernatavicius/SpringBootJSPBlog#readme"
+}
