@@ -8,7 +8,8 @@
     "cypress": "^6.3.0"
   },
   "scripts": {
-    "test": "node_modules\\.bin\\cypress open"
+    "test": "node_modules\\.bin\\cypress open",
+    "": "cypress run --record --key 1093bf92-b700-4aab-bded-cc198573096a"
   },
   "repository": {
     "type": "git",

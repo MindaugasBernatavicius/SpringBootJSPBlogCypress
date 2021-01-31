@@ -14,19 +14,19 @@
             <p id="author-name">Author: <c:out value="${post.author}"/><p>
             <hr>
             <c:if test="${post.comments.size() > 0}">
-                <h4>Comments:</h4>
-                <c:forEach items="${post.comments}" var="comment">
+            <h4>Comments:</h4>
+            <c:forEach items="${post.comments}" var="comment">
+                <hr>
+                <p><span id="author-name"><c:out value="${comment.author}"/>: </span><span><c:out value="${comment.text}"/></span></p>
+                <%-- DELETE COMMENT BUTTON, only visible for admin user --%>
+                <c:if test="${pageContext.request.isUserInRole('ADMIN')}">
+                    <form method="POST" action="<c:out value="/post/${post.id}/comment/${comment.id}/delete"/>">
+                        <input type="submit" name="delete-comment" value="DELETE">
+                    </form>
                     <hr>
-                    <p><span id="author-name"><c:out value="${comment.author}"/>: </span><span><c:out value="${comment.text}"/></span></p>
-                    <%-- DELETE COMMENT BUTTON, only visible for admin user --%>
-                    <c:if test="${pageContext.request.isUserInRole('ADMIN')}">
-                        <form method="POST" action="<c:out value="/post/${post.id}/comment/${comment.id}/delete"/>">
-                            <input type="submit" name="delete-comment" value="DELETE">
-                        </form>
-                        <hr>
-                    </c:if>
-                </c:forEach>
-            </c:if>
+                </c:if>
+            </c:forEach>
+        </c:if>
             <br>
             <hr>
             <h4>Leave a comment:</h4>
